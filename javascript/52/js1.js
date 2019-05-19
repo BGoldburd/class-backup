@@ -1,0 +1,1 @@
+console.log('In loaded js file', x, y, name);

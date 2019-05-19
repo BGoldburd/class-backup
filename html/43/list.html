@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        ul.oneLiner {
+            padding: 0;
+            list-style-type: none;
+            display: inline;
+        }
+
+        ul.oneLiner li {
+            display: inline;
+        }
+
+        ol {
+            list-style-type: hebrew;
+        }
+
+        ul.custom {
+            list-style-image: url("images/arrow.png");
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    Things to do today
+    <ul class="oneLiner">
+        <li>Wake up
+            <ul>
+                <li>Get Dressed</li>
+            </ul>
+        </li>
+
+        <li>Daven</li>
+        <li>Eat breakfast</li>
+    </ul>
+
+    Things to do tomorrow
+    <ol>
+        <li>Wake up
+            <ol>
+                <li>Get Dressed</li>
+            </ol>
+        </li>
+        <li>Daven</li>
+        <li>Eat breakfast</li>
+    </ol>
+
+    <ul class="custom">
+        <li>Wake up
+            <ul>
+                <li>Get Dressed</li>
+            </ul>
+        </li>
+
+        <li>Daven</li>
+        <li>Eat breakfast</li>
+    </ul>
+</body>
+</html>

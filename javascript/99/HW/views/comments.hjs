@@ -1,0 +1,4 @@
+{{#comments}}
+<h3>{{content}}</h3>
+<h4>by {{author}} on {{date}}</h4>
+{{/comments}}

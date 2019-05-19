@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        /* universal selector - not efficient*/
+        * {
+            box-sizing: border-box
+        }
+
+        /* type selectors
+        comma means either (either h1 or h2)*/
+        h1, h2 {
+            color: red;
+        }
+
+        /* id selector */
+        #theOne {
+            font-style: italic;
+        }
+
+        /* class selector */
+        .it {
+            font-family: cursive;
+        }
+        
+        /* space means right inside of left, p inside article */
+        article p {
+            text-decoration: underline;
+        }
+
+        /* . means with class, articles with class special */
+        article.special {
+            color: green;
+        }
+
+        /* p inside parents with class special */
+        .special p {
+            font-weight: bold;
+        }
+
+        /* p inside articles */
+        article p {
+            transform: rotate(3deg);
+        }
+
+        /*only immediate children, p children of article, but not grandchildren*/
+        article > p {
+            text-transform: uppercase;
+        }
+
+        /*sibling selectors*/
+        /* a p that immediately follows a div */
+        div + p {
+            transform: rotate(180deg);
+        }
+
+        /* all ps that follow a div */
+        div ~ p {
+            text-shadow: 5px 5px 5px red;
+        }
+
+        /* pseudo elements */
+        /* first line of elements with class special */
+        .special::first-line {
+            color: red;
+        }
+
+        /* first letter of elements with class special */
+        .special::first-letter {
+            color: blue;
+            text-shadow: 4px 4px 4px red;
+            font-weight: bold;
+            font-size: 2em;
+            font-family: cursive;
+        }
+
+        /* NOT - articles without class special */
+        article:not(.special) {
+            background-color: yellow;
+        }
+
+        /* attribute selectors */
+        /* article with pcs attribute */
+        article[pcs] {
+            border: 3px dashed green;
+        }
+
+        /* article with pcs attribute set to 5 */
+        article[pcs="5"] {
+            background-image: url("images/close.png"); 
+        }
+
+        /*a[href="document1.doc"], a[href="document2.doc"] {
+            background-image: url("images/word.png");
+        }*/
+
+        /* anchor with href attribute that contains .doc */
+        a[href*=".doc"] {
+            background-image: url("images/microsoft_word.png");
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+
+        /* anchor with href attribute that ends with .pdf */
+        a[href$=".pdf"] {
+            background-image: url("images/close.png");
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+
+        /* not used here href^="foo" would mean href that starts with foo */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="document1.doc">document1.doc</a></li>
+        <li><a href="document2.docx">document2.docx</a></li>
+        <li><a href="pdfdoc1.pdf">pdfdoc1.pdf</a></li>
+    </ul>
+    <h1 id="theOne" class="it">PCS</h1>
+    <h2>HTML CSS</h2>
+    <article class="special" pcs="5">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur officiis maxime incidunt autem suscipit nemo impedit porro odio facere, commodi omnis molestiae eaque minima, perferendis assumenda ab fugiat, molestias quod. Pariatur eum accusamus eius perspiciatis eveniet aspernatur ipsum. Nam nemo itaque minima odio recusandae perferendis, officiis totam necessitatibus assumenda nesciunt quod natus temporibus in, iure optio ad accusamus dicta. Nulla sunt voluptatum sapiente! Quia nemo harum numquam quidem debitis corrupti totam distinctio sed placeat dicta. Magnam necessitatibus soluta aperiam molestiae ducimus repellat tenetur temporibus quas, minus expedita possimus non debitis eius illo, porro hic provident ratione ipsa qui sint nisi mollitia at. Et illo inventore sint aperiam sunt quaerat ipsum est itaque, non provident hic, aliquam doloribus error consequuntur dolore. Magni magnam, assumenda modi corrupti illo asperiores tempora culpa, earum maxime quaerat, at repudiandae ad odit neque esse beatae recusandae itaque accusantium maiores porro a. Itaque expedita ad neque sed cum, repudiandae, reiciendis, dolore animi facilis deserunt ipsam sit tempore esse illum ullam. Quaerat, soluta incidunt dolorum modi odit repellat quis maiores ducimus aperiam labore asperiores. Magni quia id impedit nisi atque neque possimus, explicabo laborum. Aspernatur saepe, repellendus modi dicta laborum similique unde animi rerum, ab veniam inventore.</p>
+    </article>
+    <article pcs="6">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur officiis maxime incidunt autem suscipit nemo impedit porro odio facere, commodi omnis molestiae eaque minima, perferendis assumenda ab fugiat, molestias quod. Pariatur eum accusamus eius perspiciatis eveniet aspernatur ipsum. Nam nemo itaque minima odio recusandae perferendis, officiis totam necessitatibus assumenda nesciunt quod natus temporibus in, iure optio ad accusamus dicta. Nulla sunt voluptatum sapiente! Quia nemo harum numquam quidem debitis corrupti totam distinctio sed placeat dicta. Magnam necessitatibus soluta aperiam molestiae ducimus repellat tenetur temporibus quas, minus expedita possimus non debitis eius illo, porro hic provident ratione ipsa qui sint nisi mollitia at. Et illo inventore sint aperiam sunt quaerat ipsum est itaque, non provident hic, aliquam doloribus error consequuntur dolore. Magni magnam, assumenda modi corrupti illo asperiores tempora culpa, earum maxime quaerat, at repudiandae ad odit neque esse beatae recusandae itaque accusantium maiores porro a. Itaque expedita ad neque sed cum, repudiandae, reiciendis, dolore animi facilis deserunt ipsam sit tempore esse illum ullam. Quaerat, soluta incidunt dolorum modi odit repellat quis maiores ducimus aperiam labore asperiores. Magni quia id impedit nisi atque neque possimus, explicabo laborum. Aspernatur saepe, repellendus modi dicta laborum similique unde animi rerum, ab veniam inventore.</p>
+        <div>
+            <p>Im also a p</p>
+        </div>
+        <p>Im after a div</p>
+        <p>Im another p</p>
+    </article>
+    <article>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur officiis maxime incidunt autem suscipit nemo impedit porro odio facere, commodi omnis molestiae eaque minima, perferendis assumenda ab fugiat, molestias quod. Pariatur eum accusamus eius perspiciatis eveniet aspernatur ipsum. Nam nemo itaque minima odio recusandae perferendis, officiis totam necessitatibus assumenda nesciunt quod natus temporibus in, iure optio ad accusamus dicta. Nulla sunt voluptatum sapiente! Quia nemo harum numquam quidem debitis corrupti totam distinctio sed placeat dicta. Magnam necessitatibus soluta aperiam molestiae ducimus repellat tenetur temporibus quas, minus expedita possimus non debitis eius illo, porro hic provident ratione ipsa qui sint nisi mollitia at. Et illo inventore sint aperiam sunt quaerat ipsum est itaque, non provident hic, aliquam doloribus error consequuntur dolore. Magni magnam, assumenda modi corrupti illo asperiores tempora culpa, earum maxime quaerat, at repudiandae ad odit neque esse beatae recusandae itaque accusantium maiores porro a. Itaque expedita ad neque sed cum, repudiandae, reiciendis, dolore animi facilis deserunt ipsam sit tempore esse illum ullam. Quaerat, soluta incidunt dolorum modi odit repellat quis maiores ducimus aperiam labore asperiores. Magni quia id impedit nisi atque neque possimus, explicabo laborum. Aspernatur saepe, repellendus modi dicta laborum similique unde animi rerum, ab veniam inventore.</p>
+    </article>
+</body>
+</html>

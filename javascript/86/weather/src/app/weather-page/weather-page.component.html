@@ -1,0 +1,15 @@
+<ng-container *ngIf="weather | async as weather; else noWeather">
+  <div class="row">
+    <!--h3 class="mx-auto">The weather in {{ (weather | async)?.place }}</h3-->
+    <h3 class="mx-auto">The weather in {{ weather.place }}</h3>
+  </div>
+  <div class="row">
+    <img alt="amazing weather picture here" class="mx-auto" src="{{ weather.picture }}" />
+  </div>
+  <div class="row">
+    <h3 class="mx-auto">{{ weather.temp }} and {{ weather.description }}</h3>
+  </div>
+</ng-container>
+<ng-template #noWeather>
+  <p>There is no weather today - yet...</p>
+</ng-template>

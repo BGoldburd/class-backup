@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .message-box {
+            background-color: pink !important;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="messageText">
+    <button id="showMessage">show message</button>
+    modal
+    <input id="modal" type="checkbox" />
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quasi vel, quisquam qui aperiam reprehenderit, ducimus
+        delectus explicabo maiores atque nulla temporibus quidem, laboriosam tempora in ex porro laudantium labore nobis
+        iure ratione nostrum animi. Nostrum temporibus quae saepe nemo recusandae facilis impedit sunt consequuntur natus
+        laboriosam sequi, neque perspiciatis facere ad sapiente suscipit. Quis officiis ipsa quod libero ad at, dolores dolorem
+        quidem. Ut deleniti ex mollitia sint inventore illum quam officiis sapiente neque iste! Voluptates ad saepe accusamus
+        quam blanditiis adipisci quae. Odio perferendis voluptatem inventore ducimus, voluptatibus, delectus velit deleniti
+        minima commodi unde sit atque? Cupiditate culpa quisquam soluta, obcaecati rem debitis ipsa exercitationem necessitatibus
+        laborum, hic placeat, nobis possimus velit enim optio dignissimos cum atque neque nulla alias maxime repellat. Id
+        ipsum similique distinctio amet quaerat optio ad nihil nemo tempora numquam aperiam est, officiis molestias dignissimos
+        saepe eos! Porro, cumque eius. Incidunt, eum quisquam laudantium quos cum distinctio? Placeat reiciendis ex commodi
+        dolores corporis, similique, quasi sunt laudantium debitis quo laborum corrupti! Sed, culpa quia minus rerum eum
+        a minima aspernatur consectetur asperiores dolores, modi expedita quaerat? Sunt vitae minus sequi, odit quae temporibus
+        recusandae necessitatibus quas inventore repellendus minima iure maiores commodi quod ab.
+    </p>
+    <script src="messageBox.js"></script>
+    <script>
+        pcs.messageBox.show("This is a test message");
+        pcs.messageBox.show("This is another test message", false, ['yes', 'no', 'maybe'], function (selection) {
+            console.log('You chose ' + selection);
+        });
+
+        const modalCheckbox = document.getElementById('modal');
+        const messageTextInput = document.getElementById('messageText');
+        document.getElementById('showMessage').addEventListener('click', function () {
+            pcs.messageBox.show(messageTextInput.value, modalCheckbox.checked);
+        });
+    </script>
+</body>
+
+</html>

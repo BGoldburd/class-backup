@@ -1,0 +1,26 @@
+<div class="row d-flex flex-row-reverse">
+  <form class="form-inline">
+    <div class="form-group">
+      <input #zipInput class="form-control" placeholder="enter zip code" (change)="getWeather(zipInput.value, unitSelect.value)">
+    </div>
+    <div class="form-group">
+      <select #unitSelect class="form-control" (change)="getWeather(zipInput.value, unitSelect.value)">
+        <option value="metric">Celsius</option>
+        <option value="imperial">Farenheit</option>
+        <option value="">Kelvin</option>
+      </select>
+    </div>
+  </form>
+</div>
+<ng-container *ngIf="weather | async as weather">
+  <div class="row">
+    <!--h3 class="mx-auto">The weather in {{ (weather | async)?.place }}</h3-->
+    <h3 class="mx-auto">The weather in {{ weather.place }}</h3>
+  </div>
+  <div class="row">
+    <img alt="amazing weather picture here" class="mx-auto" src="{{ weather.picture }}" />
+  </div>
+  <div class="row">
+    <h3 class="mx-auto">{{ weather.temp }} and {{ weather.description }}</h3>
+  </div>
+</ng-container>

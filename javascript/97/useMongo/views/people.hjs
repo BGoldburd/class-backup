@@ -1,0 +1,5 @@
+<ul>
+    {{#people}}
+    <li>{{name}}</li>
+    {{/people}}
+</ul>

@@ -1,0 +1,14 @@
+<div class="row d-flex flex-row-reverse">
+  <form class="form-inline">
+    <div class="form-group">
+      <input #zipInput class="form-control" placeholder="enter zip code" (change)="getWeather(zipInput.value, unitSelect.value)">
+    </div>
+    <div class="form-group">
+      <select #unitSelect class="form-control" (change)="getWeather(zipInput.value, unitSelect.value)">
+        <option value="metric">Celsius</option>
+        <option value="imperial">Farenheit</option>
+        <option value="">Kelvin</option>
+      </select>
+    </div>
+  </form>
+</div>

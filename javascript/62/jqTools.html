@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        input.highlight {
+            background-color: green;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="donald">Donald Trump</h1>
+    <h1 id="vladimir">Vladimir Putin</h1>
+
+    Enter your name:
+    <input id="name">
+
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script>
+        const donald = /*jQuery*/$('#donald')
+            .css({ color: 'red', fontSize: '46px' })
+            .click(function (event) {
+                console.log('The Donald was clicked!', event);
+            });
+        //.sparkle(5000, 'slow');
+        console.log(donald.css('color'));
+
+        const vladimir = $('#vladimir');
+        vladimir.data('trump', { foo: 'win election', bar: 60000 });
+        console.log(vladimir.data('trump'));
+        vladimir.hide();
+
+        setTimeout(function () {
+            vladimir.show();
+        }, 2000);
+
+
+        const h1s = $('h1').css('backgroundColor', 'green');
+        console.log(h1s);
+
+        h1s.click(function (event) {
+            const theClickedH1 = $(this);
+            theClickedH1.data('clickCount', theClickedH1.data('clickCount') + 1);
+            console.log(theClickedH1.attr('id') + ' was clicked ' + theClickedH1.data('clickCount') + ' times');
+
+
+            //theClickedH1.append('<br><span>I was added dynamically!</span>');
+            //theClickedH1.append('<button>Click Me!</button>').css('font-family', 'cursive');
+            $('<button>Click Me!</button>').appendTo(theClickedH1).click(function (event) {
+                console.log('The new button was clicked!');
+                event.stopPropagation();
+
+            });
+        }).data('clickCount', 0);
+
+        const theNameInput = $('#name');
+        theNameInput.change(function () {
+            console.log(/*$(this)*/theNameInput.val())
+        }).mouseenter(function () {
+            // /*$(this)*/theNameInput.css('background-color', 'yellow');
+            theNameInput.addClass('highlight');
+        }).mouseleave(function () {
+            // /*$(this)*/theNameInput.css('background-color', 'white');
+            theNameInput.removeClass('highlight');
+        });
+
+        /*$('#name').on('mouseenter', function () {
+            console.log($(this).val())
+        });*/
+    </script>
+</body>
+
+</html>

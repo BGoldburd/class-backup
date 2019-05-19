@@ -1,0 +1,67 @@
+html {
+    background-color: white;
+}
+
+body {
+    background-color: black;
+    color: white;
+    /*width: 800px;*/
+    max-width: 800px;
+    /*width: 80%;*/
+    margin: 0 auto;
+    padding: 1em;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 0;
+}
+
+.logo {
+    height: 100px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+nav a:link {
+    color: red;
+}
+
+nav a:visited {
+    color: gray;
+}
+
+nav a:active {
+    color: green;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+}
+
+.clearFix {
+    clear: both;
+}
+
+.top {
+    border: 1px solid;
+    padding: 4px;
+    position: fixed;
+    color: white;
+}

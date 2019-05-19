@@ -1,0 +1,118 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" />
+    <link href="css/restaurant.css" rel="stylesheet" />
+    <style>
+        caption {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td, th {
+            border-bottom: 1px solid white;
+        }
+
+        td:last-child, th:last-child {
+            color: red;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: darkgray;
+        }
+
+        label, textarea {
+            display: block;
+        }
+
+        button, label {
+            margin-top: 6px;
+        }
+    </style>
+    <title>PCS Restaurant</title>
+</head>
+
+<body>
+    <a class="top" href="#top">Top</a>
+    <header id="top">
+        <h1>PCS Restaurant</h1>
+        <img class="logo" src="images/restaurant.png" alt="the restaurant" />
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li> |
+                <li>
+                    <a href="menu.html">Menu</a>
+                </li> |
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li> |
+                <li>
+                    <a href="location.html">Location</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <table>
+        <caption>Customers Served</caption>
+        <thead>
+            <tr>
+                <th>Fish</th>
+                <th>Chulent</th>
+                <th>Steak</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>3</td>
+                <td>2</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>3</td>
+                <td>2</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>3</td>
+                <td>2</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>14</td>
+                <td>18</td>
+                <td>37</td>
+                <td>22</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <form method="post" action="feedback.php">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required placeholder="Enter Name">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required placeholder="Enter email">
+        <label for="rating">Rating</label>
+        <input type="range" name="rating" id="rating" required min="1" max="5">
+        <label for="comments">Comments</label>
+        <textarea name="comments" id="comments"></textarea>
+
+        <button type="submit">Submit Feedback!</button>
+    </form>
+</body>
+
+</html>

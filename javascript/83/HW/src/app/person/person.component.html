@@ -1,0 +1,15 @@
+<ul>
+  <li>{{person.firstName}}</li>
+  <li>{{person.lastName}}</li>
+  <li>{{person.birthday | date:"MM/dd/yy"}}</li>
+</ul>
+<app-address [address]="person.address"></app-address>
+<h2 *ngIf="person.friends?.length">Friends</h2>
+<ul>
+  <li *ngFor="let friend of getFriends();let i = index;">{{friend}}
+    <button (click)="deleteFriend(i)">delete</button>
+  </li>
+</ul>
+<input #friendInput /><button (click)="addFriend(friendInput.value);friendInput.value = ''">add friend</button>
+<hr />
+{{person.friends | json}}

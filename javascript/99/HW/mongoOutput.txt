@@ -1,0 +1,255 @@
+1 test> show dbs
+admin   0.000GB
+config  0.000GB
+erase   0.000GB
+local   0.000GB
+one     0.000GB
+test    0.007GB
+2 test> use blog
+switched to db blog
+3 blog> db.posts.insertMany([{title: 'Post #1', content: 'This is post #1', author: 'me', date: new Date()}, {title: 'Post #2', content: 'This is post #2', author: 'you', date: new Date()}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5c578a9d7294511e2723b614"),
+                ObjectId("5c578a9d7294511e2723b615")
+        ]
+}
+4 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+5 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+6 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c5795f699a86d37684610d9"),
+        "title" : "A new post",
+        "content" : "This is a new post",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T01:31:34.400Z")
+}
+7 blog> db.posts.update({_id: ObjectId("5c578a9d7294511e2723b614")}, {$push: {comments: 'This is a comment'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+8 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z"),
+        "comments" : [
+                "This is a comment"
+        ]
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c5795f699a86d37684610d9"),
+        "title" : "A new post",
+        "content" : "This is a new post",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T01:31:34.400Z")
+}
+9 blog> db.posts.update({_id: ObjectId("5c578a9d7294511e2723b614")}, {$pop: 1})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Modifiers operate on fields but we found type double instead. For example: {$mod: {<field>: ...}} not {$pop: 1.0}"
+        }
+})
+10 blog> db.posts.update({_id: ObjectId("5c578a9d7294511e2723b614")}, {$pop: {comments: 1}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+11 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z"),
+        "comments" : [ ]
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c5795f699a86d37684610d9"),
+        "title" : "A new post",
+        "content" : "This is a new post",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T01:31:34.400Z")
+}
+12 blog> db.posts.update({_id: ObjectId("5c578a9d7294511e2723b614")}, {$push: {comments: {content: 'This is a comment', author: 'you', date: new Date()}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+13 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z"),
+        "comments" : [
+                {
+                        "content" : "This is a comment",
+                        "author" : "you",
+                        "date" : ISODate("2019-02-04T01:41:47.547Z")
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z")
+}
+{
+        "_id" : ObjectId("5c5795f699a86d37684610d9"),
+        "title" : "A new post",
+        "content" : "This is a new post",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T01:31:34.400Z")
+}
+14 blog> db.posts.find({_id: 'content: req.body.content,).pretty()
+2019-02-03T21:34:58.144-0500 E QUERY    [js] SyntaxError: unterminated string literal @(shell):1:20
+15 blog>         author: 'someone',
+...         date: new Date()
+2019-02-03T21:35:00.317-0500 E QUERY    [js] SyntaxError: missing ; before statement @(shell):2:12
+16 blog>
+17 blog>
+18 blog> db.posts.find().pretty()
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b614"),
+        "title" : "Post #1",
+        "content" : "This is post #1",
+        "author" : "me",
+        "date" : ISODate("2019-02-04T00:43:09.130Z"),
+        "comments" : [
+                {
+                        "content" : "This is a comment",
+                        "author" : "you",
+                        "date" : ISODate("2019-02-04T01:41:47.547Z")
+                },
+                {
+                        "content" : "second comment",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:39:12.956Z")
+                },
+                {
+                        "content" : "3rd",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:50:20.047Z")
+                },
+                {
+                        "content" : "4th",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T03:12:00.745Z")
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5c578a9d7294511e2723b615"),
+        "title" : "Post #2",
+        "content" : "This is post #2",
+        "author" : "you",
+        "date" : ISODate("2019-02-04T00:43:09.130Z"),
+        "comments" : [
+                {
+                        "content" : "comment on post#2",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:55:14.244Z")
+                },
+                {
+                        "content" : "from edge",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:56:57.977Z")
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5c5795f699a86d37684610d9"),
+        "title" : "A new post",
+        "content" : "This is a new post",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T01:31:34.400Z"),
+        "comments" : [
+                {
+                        "content" : "another comment",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:55:38.236Z")
+                },
+                {
+                        "content" : "a new comment",
+                        "author" : "someone",
+                        "date" : ISODate("2019-02-04T02:56:23.904Z")
+                }
+        ]
+}
+{
+        "_id" : ObjectId("5c57adfa01bb7918c8d712ed"),
+        "title" : "",
+        "content" : "",
+        "author" : "someone",
+        "date" : ISODate("2019-02-04T03:14:02.463Z")
+}
+19 blog> db.posts.find().limit(1)
+{ "_id" : ObjectId("5c578a9d7294511e2723b614"), "title" : "Post #1", "content" : "This is post #1", "author" : "me", "date" : ISODate("2019-02-04T00:43:09.130Z"), "comments" : [ { "content" : "This is a comment", "author" : "you", "date" : ISODate("2019-02-04T01:41:47.547Z") }, { "content" : "second comment", "author" : "someone", "date" : ISODate("2019-02-04T02:39:12.956Z") }, { "content" : "3rd", "author" : "someone", "date" : ISODate("2019-02-04T02:50:20.047Z") }, { "content" : "4th", "author" : "someone", "date" : ISODate("2019-02-04T03:12:00.745Z") } ] }
+20 blog> db.posts.find().limit(3)
+{ "_id" : ObjectId("5c578a9d7294511e2723b614"), "title" : "Post #1", "content" : "This is post #1", "author" : "me", "date" : ISODate("2019-02-04T00:43:09.130Z"), "comments" : [ { "content" : "This is a comment", "author" : "you", "date" : ISODate("2019-02-04T01:41:47.547Z") }, { "content" : "second comment", "author" : "someone", "date" : ISODate("2019-02-04T02:39:12.956Z") }, { "content" : "3rd", "author" : "someone", "date" : ISODate("2019-02-04T02:50:20.047Z") }, { "content" : "4th", "author" : "someone", "date" : ISODate("2019-02-04T03:12:00.745Z") } ] }
+{ "_id" : ObjectId("5c578a9d7294511e2723b615"), "title" : "Post #2", "content" : "This is post #2", "author" : "you", "date" : ISODate("2019-02-04T00:43:09.130Z"), "comments" : [ { "content" : "comment on post#2", "author" : "someone", "date" : ISODate("2019-02-04T02:55:14.244Z") }, { "content" : "from edge", "author" : "someone", "date" : ISODate("2019-02-04T02:56:57.977Z") } ] }
+{ "_id" : ObjectId("5c5795f699a86d37684610d9"), "title" : "A new post", "content" : "This is a new post", "author" : "someone", "date" : ISODate("2019-02-04T01:31:34.400Z"), "comments" : [ { "content" : "another comment", "author" : "someone", "date" : ISODate("2019-02-04T02:55:38.236Z") }, { "content" : "a new comment", "author" : "someone", "date" : ISODate("2019-02-04T02:56:23.904Z") } ] }
+21 blog> db.posts.find().limit(1)
+{ "_id" : ObjectId("5c578a9d7294511e2723b614"), "title" : "Post #1", "content" : "This is post #1", "author" : "me", "date" : ISODate("2019-02-04T00:43:09.130Z"), "comments" : [ { "content" : "This is a comment", "author" : "you", "date" : ISODate("2019-02-04T01:41:47.547Z") }, { "content" : "second comment", "author" : "someone", "date" : ISODate("2019-02-04T02:39:12.956Z") }, { "content" : "3rd", "author" : "someone", "date" : ISODate("2019-02-04T02:50:20.047Z") }, { "content" : "4th", "author" : "someone", "date" : ISODate("2019-02-04T03:12:00.745Z") } ] }
+22 blog> db.posts.find().skip(1).limit(1)
+{ "_id" : ObjectId("5c578a9d7294511e2723b615"), "title" : "Post #2", "content" : "This is post #2", "author" : "you", "date" : ISODate("2019-02-04T00:43:09.130Z"), "comments" : [ { "content" : "comment on post#2", "author" : "someone", "date" : ISODate("2019-02-04T02:55:14.244Z") }, { "content" : "from edge", "author" : "someone", "date" : ISODate("2019-02-04T02:56:57.977Z") } ] }
+23 blog> db.posts.find().skip(1).limit(1)

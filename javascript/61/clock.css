@@ -1,0 +1,12 @@
+.clock {
+    display: inline-block;
+    border: 3px solid gray;
+    padding: 1rem 2rem;
+    font-size: 32px;
+    color: red;
+    background-color: black;
+}
+
+.clock span:not(:last-child):after {
+    content: ':';
+}

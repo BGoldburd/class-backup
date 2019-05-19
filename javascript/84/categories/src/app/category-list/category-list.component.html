@@ -1,0 +1,30 @@
+<select #categorySelect (change)="categorySelected(categorySelect.value)">
+  <option hidden>select a category</option>
+  <option *ngFor="let category of categories; let i = index;" value={{i}}>
+    <app-category-info [category]="category"></app-category-info>
+  </option>
+</select>
+
+<hr />
+
+<ul>
+  <li *ngFor="let item of selectedCategory?.items">
+    {{item.name}} - {{item.price}}
+  </li>
+</ul>
+
+<hr />
+
+<select [(ngModel)]="selectedIndex">
+  <option *ngFor="let category of categories; let i = index;" value={{i}}>
+    <app-category-info [category]="category"></app-category-info>
+  </option>
+</select>
+
+<hr />
+
+<ul>
+  <li *ngFor="let item of categories[selectedIndex].items">
+    <app-item [item]="item"></app-item>
+  </li>
+</ul>

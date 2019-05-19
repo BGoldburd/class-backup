@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #sidebar {
+            width: 25%;
+            float: left;
+        }
+
+        #videoList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #videoList li {
+            margin-bottom: 1em;
+            cursor: pointer;
+        }
+
+        #videoList li:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        #videoList img {
+            width: 50px;
+            vertical-align: middle;
+        }
+
+        #player {
+            width: 75%;
+        }
+    </style>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="videos.js"></script>
+</head>
+
+<body>
+    <div id="sidebar">
+        <ul id="videoList"></ul>
+    </div>
+    <video id="player" controls autoplay />
+
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="videos.js"></script-->
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        article {
+            border: 3px solid red;
+            display: flex;
+            /*display: inline-flex;*/
+            /*flex-direction: column;*/
+            /*flex-wrap: wrap;*/
+            /*lex-wrap: wrap-reverse;*/
+            /*justify-content: space-between;
+            align-items: center;
+            height: 800px;*/
+        }
+
+        section {
+            border: 1px solid blue;
+        }
+
+        section:nth-child(2) {
+            align-self: stretch;
+            
+            /*flex-grow: 1;
+            flex-shrink: 2;
+            flex-basis: 100px;*/
+            flex: 1 2 100px;
+        }
+
+        section:nth-child(4) {
+            /*font-size: 36px;*/
+            flex-shrink: .5;
+            order: 1;
+        }
+
+        .yellowbox {
+            display: flex;
+            /*justify-content: center;
+            align-items: center;*/
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+        }
+
+        .yellowbox p {
+            margin: auto;
+        }
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Flexbox</h1></header>
+    <hr>
+    <article>
+        <section>
+            <div>
+                <h1>1</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>2</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>3</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>4</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>5</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>6</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>7</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h1>8</h1>
+                <p>Im a flex item</p>
+            </div>
+        </section>
+    </article>
+    <div class="yellowbox">
+        <p>Hello</p>
+    </div>
+</body>
+</html>

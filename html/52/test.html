@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 12fr 1fr;
+            margin: 0;
+            padding: 3em 0;
+        }
+
+        /*header {
+            grid-area: 1 / 2 / 2 / 3;
+        }*/
+
+        #products {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+
+        #signup {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+
+        #financials {
+            grid-area: 5 / 2 / 6 / 3;
+        }
+
+        #aboutus {
+            grid-area: 6 / 2 / 7 / 3;
+        }
+
+        nav,
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            background-color: black;
+            display: grid;
+            grid-template-columns: 1fr 12fr 1fr;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        header,
+        nav ul,
+        footer p {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+
+        nav ul,
+        footer p {
+            margin: 1em 0;
+        }
+
+        nav ul {
+            /*list-style-type: none;*/
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 2em;
+        }
+
+        nav a,
+        footer p {
+            color: white;
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: lightgray;
+            text-align: center;
+            padding: 4em 0;
+        }
+
+        header h1 {
+            text-transform: uppercase;
+        }
+
+        @media screen and (min-width: 1000px) {
+            #products {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: "h2 h2 h2";
+            }
+
+            #products figure {
+                border-right: 1px solid gray;
+                padding: 20px;
+            }
+
+            #products figure:last-of-type {
+                border-right: transparent;
+            }
+        }
+
+        #products .products_header {
+            grid-area: h2;
+        }
+
+        #products figure h2 {
+            text-align: center;
+        }
+
+        #products figcaption {
+            text-align: justify;
+        }
+
+        #products figure {
+            margin: 0;
+        }
+
+        #products figure img,
+        #products figure video {
+            width: 100%;
+        }
+
+        #signup {
+            background-color: lightgray;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        #signup,
+        #signup input,
+        #signup button {
+            border-radius: 5px;
+        }
+
+        #signup input {
+            box-shadow: 4px 4px 4px 1px black;
+            outline: none;
+        }
+
+        #signup label {
+            margin-right: 4px;
+        }
+
+        #financials table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        #financials td,
+        #financials th {
+            border: 1px solid black;
+        }
+
+        #financials td {
+            text-align: right;
+        }
+
+        #financials td:last-child {
+            color: red;
+        }
+
+        #financials tfoot th {
+            text-align: right;
+        }
+
+        #financials tbody tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        #financials tbody tr:hover {
+            background-color: lightblue;
+        }
+
+        section {
+            margin-top: -3em;
+            padding-top: 3em;
+        }
+
+        #signup {
+            margin-top: 1em;
+        }
+
+        @media screen and (max-width: 999px) {
+            #signup label {
+                display: block;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="#products">Products</a>
+            </li>
+            <li>
+                <a href="#signup">Sign Up</a>
+            </li>
+            <li>
+                <a href="#financials">Financials</a>
+            </li>
+            <li>
+                <a href="#aboutus">About Us</a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1>estuff</h1>
+        <h2>A
+            <em>PCS</em> company</h2>
+    </header>
+    <section id="products">
+        <div class="products_header">
+            <h2>Products</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non quaerat error provident repellendus? Provident inventore maiores
+                quaerat voluptatibus officia mollitia temporibus aut maxime! Adipisci, totam?
+            </p>
+        </div>
+        <figure>
+            <h2>Computers</h2>
+            <img src="images/macworld.jpg" alt="computer" />
+            <figcaption>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi vitae nulla incidunt, culpa et autem repellendus temporibus,
+                molestiae aperiam veritatis excepturi exercitationem sed. Velit unde nam quod consequatur asperiores quis
+                voluptates deserunt nulla in neque vero molestiae, ad officiis vitae provident eius ipsum illo laudantium
+                porro accusantium? Nihil porro natus animi quaerat totam placeat incidunt sequi modi, explicabo esse nulla,
+                suscipit repellat aliquam odit distinctio consectetur dolorum facilis, perferendis sapiente eius. Iste, vitae
+                ad quasi laudantium accusantium quis excepturi minus fugiat dolorem, accusamus at placeat ab ducimus molestiae
+                asperiores consectetur perspiciatis voluptatum saepe facilis. Dolorum cupiditate aliquid eaque atque corrupti.
+            </figcaption>
+        </figure>
+        <figure>
+            <h2>Choirs</h2>
+            <video src="media/El%20Hanaar%20Hazeh.mp4" poster="images/shira.png" controls></video>
+            <figcaption>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nihil distinctio quo. Iusto numquam molestiae facilis
+                earum neque cum fugiat, tenetur illum quo dicta porro laborum voluptatum cumque odio voluptates unde nisi
+                temporibus aliquid similique natus! Repellendus consectetur, deleniti qui aliquam nisi necessitatibus esse
+                perferendis nobis libero, minima, vel expedita iste. Aliquid amet excepturi rerum aliquam assumenda ut consequuntur
+                nihil itaque! Consectetur pariatur, at dolore sequi aliquid numquam eveniet qui, voluptate quia eos ducimus
+                est distinctio, earum ad id. Voluptas eligendi similique, dignissimos voluptates itaque eum ipsum, debitis
+                recusandae qui odit provident eaque inventore. Sequi unde adipisci ut quos ad.
+            </figcaption>
+        </figure>
+        <figure>
+            <h2>Candy</h2>
+            <img src="images/candy.png" alt="candy" />
+            <figcaption>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium a dolores ducimus enim commodi harum fuga aliquam consequuntur,
+                dignissimos aliquid quos quae nisi dicta? Libero eos dolorem doloremque facere debitis beatae vel id qui
+                voluptates ipsa, minima veritatis vitae illo harum unde. Minus veritatis eaque deleniti est ratione fugiat
+                natus nam optio commodi omnis aliquid sequi aperiam deserunt sapiente, velit assumenda reprehenderit cum
+                voluptatibus non. Hic laboriosam vitae id incidunt pariatur. Temporibus obcaecati omnis autem ab provident
+                laborum necessitatibus fugiat distinctio, nisi quod, nobis consequuntur commodi esse iure, quia ea itaque
+                excepturi voluptas quo odit! Adipisci fuga sed nisi aut?
+            </figcaption>
+        </figure>
+    </section>
+    <section id="signup">
+        <form action="signup.php" method="post">
+            <h2>Sign Me Up!</h2>
+            <label for="name">Name:
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </label>
+            <label for="email">Email:
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </label>
+            <button type="submit">Sign Me Up!</button>
+        </form>
+    </section>
+    <section id="financials">
+        <h2>Financials</h2>
+        <table>
+            <caption>
+                <h3>Profits - By Quarter</h3>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>1st Quarter profits</th>
+                    <th>2nd Quarter profits</th>
+                    <th>3rd Quarter profits</th>
+                    <th>4th Quarter profits</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>2012</th>
+                    <td>$1254564.32</td>
+                    <td>$1154545.67</td>
+                    <td>$1236566.98</td>
+                    <td>$1368546.32</td>
+                    <td>$5050934.29</td>
+                </tr>
+                <tr>
+                    <th>2013</th>
+                    <td>$1385475.87</td>
+                    <td>$1485690.23</td>
+                    <td>$1365568.54</td>
+                    <td>$1545435.11</td>
+                    <td>$5623344.75</td>
+                </tr>
+                <tr>
+                    <th>2014</th>
+                    <td>$1589878.76</td>
+                    <td>$1698986.45</td>
+                    <td>$1645456.32</td>
+                    <td>$1789890.35</td>
+                    <td>$6545657.88</td>
+                </tr>
+                <tr>
+                    <th>2015</th>
+                    <td>$1889776.22</td>
+                    <td>$1854565.71</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                    <td>$3654654.93</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">Total</th>
+                    <td>$20978798.85</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+    <section id="aboutus">
+        <h2>About Us</h2>
+        <p>
+            Start Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi officia repudiandae exercitationem dignissimos
+            ea sapiente eos voluptates quos aspernatur beatae quis, voluptatum consequatur, suscipit velit sit est doloribus
+            quae, commodi aut non qui! Facilis aut similique soluta. Voluptas explicabo vitae cupiditate ipsa assumenda esse
+            delectus dolor repellat maiores ullam tempora modi recusandae ex similique, accusantium iste perferendis minus?
+            Suscipit eum hic ea illo libero iusto alias fugit! Ullam totam error dicta repellat libero quae ratione! Neque,
+            culpa ullam? Id aut eum beatae unde ullam repellendus nulla, magnam cupiditate nihil soluta dolore consectetur
+            atque a accusantium obcaecati pariatur recusandae facilis doloribus! Perspiciatis odit tempore eligendi numquam
+            harum eius voluptate quidem distinctio eveniet modi dolor vel aut dolore quas ut pariatur, tenetur consequatur
+            cumque iure? Rem, impedit inventore dolore deleniti maiores mollitia obcaecati assumenda. Quis accusantium, mollitia
+            excepturi dicta sed adipisci. Itaque consectetur quisquam fugiat voluptas sed debitis reprehenderit, nostrum
+            delectus, repellat fuga quae aliquam blanditiis quam perspiciatis autem. A ipsam voluptates quibusdam iste? Id
+            impedit excepturi repudiandae, mollitia accusantium dolor perferendis repellendus libero facere architecto quasi
+            ipsa maxime veritatis velit sequi totam cumque fugiat soluta doloremque aliquid! Repudiandae dolor itaque facere
+            quia nesciunt facilis, cum iusto aperiam, modi praesentium optio, nihil omnis. Ab eos sed voluptatem molestias.
+            Libero, tenetur recusandae deserunt illo nobis ipsa vero voluptates accusantium minima esse adipisci, eveniet
+            error sed, eum repellendus asperiores perferendis quos ratione cumque provident eius? Porro soluta quasi explicabo
+            quaerat ullam amet totam, suscipit alias exercitationem commodi, magni accusantium qui expedita aut modi tempora?
+            End
+        </p>
+    </section>
+    <footer>
+        <p>&copy; PCS 2017</p>
+    </footer>
+</body>
+
+</html>

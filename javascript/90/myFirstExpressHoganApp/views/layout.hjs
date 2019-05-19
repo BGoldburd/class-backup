@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ appTitle }}</h1>
+    <h2>{{ title }}</h2>
+    {{> content}}
+    <hr/>
+    <h5>Copyright &copy; PCS 2019</h5>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<header class="text-center">
+    <h2>{{stockInfo.symbol}}</h2>
+    <h3>{{stockInfo.lastRefreshed}}</h3>
+    <h6>{{stockInfo.information}}</h6>
+</header>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=date{{dateDirection}}">Date</a></th>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=open{{openDirection}}">Open</a></th>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=high{{highDirection}}">High</a></th>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=low{{lowDirection}}">Low</a></th>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=close{{closeDirection}}">Close</a></th>
+            <th><a href="/?symbol={{stockInfo.symbol}}&sort=volume{{volumeDirection}}">Volume</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#timeSeries}}
+        <tr>
+            <td>{{date}}</td>
+            <td>{{open}}</td>
+            <td>{{high}}</td>
+            <td>{{low}}</td>
+            <td>{{close}}</td>
+            <td>{{volume}}</td>
+        </tr>
+        {{/timeSeries}}
+    </tbody>
+</table>

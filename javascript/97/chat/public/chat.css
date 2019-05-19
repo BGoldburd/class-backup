@@ -1,0 +1,46 @@
+#messages {
+    height: 300px;
+    border: 1px solid black;
+    margin-bottom: 1em;
+    box-sizing: border-box;
+}
+
+#message {
+    width: 90%;
+}
+
+#messageForm button {
+    float: right;
+}
+
+#messagesContainer {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+.status {
+    font-style: italic;
+    color: gray;
+}
+
+#chatterDiv {
+    float: left;
+    width: 25%;
+    border: 1px solid black;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.self {
+    font-size: 2em;
+    color: gold;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.private {
+    font-style: italic;
+}

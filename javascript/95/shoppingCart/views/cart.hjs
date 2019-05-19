@@ -1,0 +1,32 @@
+<h2>Your cart contains</h2>
+{{#empty}}
+<h1>NOTHING!</h1>
+<h3><a href="/">Fill it up</a></h3>
+{{/empty}}
+{{#notEmpty}}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>name</td>
+            <td>count</td>
+            <td>unit price</td>
+            <td>subtotal</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#items}}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{count}}</td>
+            <td>${{item.price}}</td>
+            <td>${{subtotal}}</td>
+        </tr>
+        {{/items}}
+    </tbody>
+    <tfoot>
+        <td>grand total</td>
+        <td colspan="2"></td>
+        <td>${{grandTotal}}</td>
+    </tfoot>
+</table>
+{{/notEmpty}}

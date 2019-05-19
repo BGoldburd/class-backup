@@ -1,0 +1,10 @@
+			id	class   type
+#it			1	0	0		100
+.foo			0	1	0		10
+p			0	0	1		1
+.foo p			0	1	1		11
+#it .foo p		1	1	1		111
+
+not really 3 digits
+.one .two		0	2	0		2
+.one .two ... .ten	0	10	0		10

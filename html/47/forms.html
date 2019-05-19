@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]):not([type="reset"]):not([type="button"]), textarea {
+            display: block;
+            width: 100%;
+            margin-top: .2em;
+            margin-bottom: 1em;
+        }
+
+        input[type="submit"], button[type="submit"] {
+            border: 3px solid red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>PCS Form</h1>
+    <hr>
+    <form action="postTheForm.asp" method="post">
+        <!--label>First Name: <input name="firstName" value="Donald" placeholder="Enter First Name"/></label-->
+        <label for="firstName">First Name:</label> <input name="firstName" value="Donald" placeholder="Enter First Name" required/>
+        <label for="lastName">Last Name:</label> <input name="lastName" placeholder="Enter Last Name"/>
+        <label for="password">Password:</label> <input type="password" name="password" placeholder="Enter Password" minlength="6" maxlength="8"/>
+        <label for="age">Age:</label> <input type="number" name="age" placeholder="Age" min="0" max="120" step=".01"/>
+        <label for="email">Email:</label> <input type="email" name="email" placeholder="Enter Email"/>
+        <label for="favoriteColor">Color:</label> <input type="color" name="color"/>
+        <label for="date">Birthday:</label> <input type="date" name="birthday"/>
+        <label for="month">Favorite Month:</label> <input type="month" name="month"/>
+        <label for="week">Favorite Week:</label> <input type="week" name="week"/>
+        <label for="telephone">Your phone number:</label> <input type="tel" name="telephone"/>
+        <label for="rating">Rate Us:</label> <input type="range" name="rating" min="1" max="5"/>
+        <label for="comments">Comments:</label><textarea name="comments" placeholder="Add comment">Initial text</textarea>
+        
+        <label for="poll">Do you think Trump and Kim will meet?:</label> 
+        <input type="radio" name="poll" value="yes"/>yes
+        <input type="radio" name="poll" value="no"/>no
+        <input type="radio" name="poll" value="maybe"/>maybe
+        <hr>  
+        <label for="drink[]">Which do you like?:</label> 
+        <input type="checkbox" name="drink[]" value="pepsi"/>Pepsi
+        <input type="checkbox" name="drink[]" value="coke"/>Coke
+        <input type="checkbox" name="drink[]" value="gingerale"/>Ginger Ale
+        <hr>
+        <label for="state">Which state do you live in?</label>
+        <select name="state" multiple>
+            <option value="1">New Jersey</option>
+            <option value="2">New York</option>
+            <option>New Hampshire</option>
+        </select>
+        <hr>    
+        <input type="submit" value="Register!"/>
+        <input type="reset" value="Clear the form!"/>
+        <input type="button" value="Click Me!"/>
+
+        <button type="submit">Submit #2</button>
+        <button type="reset">RESET <img src="../46/images/close.png"/></button>
+        <button type="button"><img src="../46/images/close.png"/></button>
+    </form>
+</body>
+</html>

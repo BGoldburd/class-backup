@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        /** {
+            box-sizing: border-box;
+        }
+
+        aside, article {
+            float: left;
+            padding: 6px;
+        }
+
+        aside {
+            width: 25%;
+        }
+
+        article {
+            width: 50%;
+        }*/
+
+        @media screen and (min-width: 1000px) {
+            .container {
+                display: flex;
+            }
+        }
+
+        article, aside {
+            /*flex: 1 1;*/
+            padding: 6px;
+        }
+
+        article {
+            flex: 1 1;
+        }
+
+        aside {
+            flex: .5 1;
+        }
+
+        aside:first-of-type {
+            order: -1;
+        }
+
+        .form-group {
+            margin-bottom: 6px;
+            display: flex;
+        }
+
+        .form-group input:not([type=submit]) {
+            flex: 1 1;
+        }
+
+        .nested, .nested > div {
+            display: flex;
+        }
+
+        .nested p {
+            margin: 0;
+            flex: 1 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <article>
+            <h2>Main Content</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci exercitationem modi quaerat nihil enim numquam sint possimus molestiae nostrum odit, distinctio quibusdam debitis officiis praesentium. Corporis quae, minima odit provident ipsum tenetur, repellendus quidem voluptates, exercitationem eius nobis tempora reiciendis soluta sed at maiores iusto modi debitis asperiores inventore a incidunt laboriosam aut enim! Nihil nemo corrupti dicta tempora ducimus sapiente deleniti, officiis illo delectus, dignissimos, nobis sequi hic doloribus laborum placeat rerum possimus vel aut inventore libero iusto magni? Iure esse vel illo dicta ipsam id blanditiis alias, beatae eius nisi, voluptatum eaque possimus consequuntur vitae aspernatur culpa porro, in quaerat sint voluptatem eveniet. Assumenda illo perferendis, quos sequi reprehenderit ea dolore mollitia minima neque expedita a, est dignissimos tenetur iste autem nobis. Iusto accusantium sapiente sit velit. Magni, praesentium similique labore expedita, tempora nostrum blanditiis adipisci saepe harum eos impedit laboriosam, laudantium corporis! Ipsam exercitationem suscipit reiciendis iste odit, autem esse quia facilis placeat, odio cupiditate optio. Voluptatum suscipit facere unde, repellendus nobis a architecto illo perferendis, provident voluptates optio numquam culpa, qui quod! Optio, quas! Ipsam cumque sit doloribus at, sapiente recusandae nesciunt suscipit tenetur? Tempore blanditiis optio quia ab reiciendis omnis voluptate perferendis, magni porro aliquid.
+            </p>
+        </article>
+        <aside>
+            <h2>Aside #1</h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, voluptatem quibusdam laboriosam molestiae ad aliquid, iure consectetur officia vero maiores vitae, sit nihil eum quisquam.
+            </p>
+        </aside>
+        <aside>
+            <h2>Aside #2</h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, voluptatem quibusdam laboriosam molestiae ad aliquid, iure consectetur officia vero maiores vitae, sit nihil eum quisquam.
+            </p>
+        </aside>
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit">
+    </form>
+    <div class="nested">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil esse est illo, magnam cumque nulla aperiam dolore adipisci obcaecati eligendi voluptatum sed omnis quia eveniet?
+        </p>
+        <div>
+            <div>Lorem ipsum dolor sit amet.</div>
+            <div>Lorem ipsum dolor sit amet.</div>
+        </div>
+    </div>
+</body>
+</html>

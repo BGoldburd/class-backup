@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <!--input [value]="title" (keyup)="updateTitle($event)" /-->
+  <!--input #titleInput [value]="title" (keyup)="title = titleInput.value" /-->
+  <input #titleInput [(ngModel)]="title" required minlength="5" />
+  {{ titleInput.className }}
+</div>
+<div>Hello
+  <app-person [person]="person"></app-person>
+</div>

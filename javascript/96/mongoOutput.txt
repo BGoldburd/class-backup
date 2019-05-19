@@ -1,0 +1,515 @@
+Microsoft Windows [Version 10.0.17763.253]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\slubo>mongo
+MongoDB shell version v4.0.5
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("0ce80e5d-dfc3-4a56-b59e-e8742a927f0d") }
+MongoDB server version: 4.0.5
+Server has startup warnings:
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten]
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+1 test> show dbs
+admin   0.000GB
+config  0.000GB
+erase   0.000GB
+local   0.000GB
+one     0.000GB
+test    0.007GB
+2 test> use one
+switched to db one
+3 one> sayHi()
+Hi!
+4 one> function sayHello() {
+... print('Hello');
+... }
+5 one> sayHello()
+Hello
+6 one> const donald = {name: 'Donald'}
+7 one> edit donald
+2019-01-20T21:49:23.706-0500 E QUERY    [js] TypeError: redeclaration of const donald :
+@(shell):1:5
+2019-01-20T21:49:46.511-0500 E QUERY    [js] TypeError: invalid assignment to const `donald' :
+@tojs:1:31
+error executing assignment: donald = { "name" : "Donald", age: 70 }
+8 one> edit donald
+2019-01-20T21:49:51.605-0500 E QUERY    [js] TypeError: redeclaration of const donald :
+@(shell):1:5
+2019-01-20T21:50:19.631-0500 I CONTROL  [thread1] shutting down with code:0
+
+C:\Users\slubo>
+C:\Users\slubo>
+C:\Users\slubo>
+C:\Users\slubo>mongo
+MongoDB shell version v4.0.5
+connecting to: mongodb://127.0.0.1:27017/?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("77db2206-89a8-4e86-9723-098a95972c2e") }
+MongoDB server version: 4.0.5
+Server has startup warnings:
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten]
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-01-20T21:37:17.615-0500 I CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+1 test> let donald = {name: "Donald"}
+2 test> edit donald
+2019-01-20T21:50:48.463-0500 E QUERY    [js] TypeError: redeclaration of let donald :
+@(shell):1:5
+3 test> donald
+{ "name" : "Donald", "age" : 70 }
+4 test> show dbs
+admin   0.000GB
+config  0.000GB
+erase   0.000GB
+local   0.000GB
+one     0.000GB
+test    0.007GB
+5 test> use foo
+switched to db foo
+6 foo> show dbs
+admin   0.000GB
+config  0.000GB
+erase   0.000GB
+local   0.000GB
+one     0.000GB
+test    0.007GB
+7 foo> use one
+switched to db one
+8 one> show collections
+presidents
+9 one> db.presidents.find()
+{ "_id" : ObjectId("5c3173a7b9c00335688f2718"), "name" : "Barack Obama", "year" : "2013" }
+{ "_id" : ObjectId("5c3173edb9c00335688f2719"), "name" : "Donald Trump", "year" : "2017" }
+10 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+11 one> db.presidents.findOne()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+12 one>
+13 one> db.presidents.insert({name: 'George W Bush', year: 2000})
+WriteResult({ "nInserted" : 1 })
+14 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+15 one> db.presidents.insert({foo: 27})
+WriteResult({ "nInserted" : 1 })
+16 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+17 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+18 one> db.presidents.find({name: 'Donald Trump'})
+{ "_id" : ObjectId("5c3173edb9c00335688f2719"), "name" : "Donald Trump", "year" : "2017" }
+19 one> db.presidents.insert({foo: 27, _id: 52})
+WriteResult({ "nInserted" : 1 })
+20 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{ "_id" : 52, "foo" : 27 }
+21 one> db.presidents.insert({foo: 27, _id: 52})
+WriteResult({
+        "nInserted" : 0,
+        "writeError" : {
+                "code" : 11000,
+                "errmsg" : "E11000 duplicate key error collection: one.presidents index: _id_ dup key: { : 52.0 }"
+        }
+})
+22 one> db.presidents.insert([{name: 'George H W Bush', year: 1989}, {name: 'Bill Clinton', year: 1993})
+...
+...
+23 one> db.presidents.insert([{name: 'George H W Bush', year: 1989}, {name: 'Bill Clinton', year: 1993}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+24 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{ "_id" : 52, "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "name" : "Bill Clinton",
+        "year" : 1993
+}
+25 one> db.presidents.insertOne([{name: 'George H W Bush', year: 1989}, {name: 'Bill Clinton', year: 1993}])
+2019-01-20T22:05:38.374-0500 E QUERY    [js] Error: operation passed in cannot be an Array :
+Bulk/addToOperationsList@src/mongo/shell/bulk_api.js:608:1
+Bulk/this.insert@src/mongo/shell/bulk_api.js:654:20
+DBCollection.prototype.insertOne@src/mongo/shell/crud_api.js:248:5
+@(shell):1:1
+26 one> db.presidents.insertMany([{name: 'George H W Bush', year: 1989}, {name: 'Bill Clinton', year: 1993}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5c45371076b01c20ea676e0c"),
+                ObjectId("5c45371076b01c20ea676e0d")
+        ]
+}
+27 one> db.presidents.insertMany({name: 'Bill Clinton', year: 1993})
+2019-01-20T22:06:08.172-0500 E QUERY    [js] TypeError: documents.map is not a function :
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:295:1
+@(shell):1:1
+28 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{ "_id" : 52, "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "name" : "Bill Clinton",
+        "year" : 1993
+}
+{
+        "_id" : ObjectId("5c45371076b01c20ea676e0c"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c45371076b01c20ea676e0d"),
+        "name" : "Bill Clinton",
+        "year" : 1993
+}
+29 one> db.presidents.remove({_id: ObjectId("5c45371076b01c20ea676e0c")}
+... )
+WriteResult({ "nRemoved" : 1 })
+30 one> db.presidents.remove(ObjectId("5c45371076b01c20ea676e0d"))
+WriteResult({ "nRemoved" : 1 })
+31 one> db.presidents.remove(52)
+2019-01-20T22:09:55.199-0500 E QUERY    [js] Error: don't know how to massage : number :
+DBCollection.prototype._massageObject@src/mongo/shell/collection.js:216:11
+DBCollection.prototype._parseRemove@src/mongo/shell/collection.js:364:17
+DBCollection.prototype.remove@src/mongo/shell/collection.js:389:18
+@(shell):1:1
+32 one> db.presidents.remove({_id: 52})
+WriteResult({ "nRemoved" : 1 })
+33 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "name" : "Bill Clinton",
+        "year" : 1993
+}
+34 one> db.presidents.update(ObjectId("5c4536e976b01c20ea676e0b"), {year: 1992})
+WriteCommandError({
+        "ok" : 0,
+        "errmsg" : "BSON field 'update.updates.q' is the wrong type 'objectId', expected type 'object'",
+        "code" : 14,
+        "codeName" : "TypeMismatch"
+})
+35 one> db.presidents.update({_id: ObjectId("5c4536e976b01c20ea676e0b")}, {year: 1992})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+36 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{ "_id" : ObjectId("5c4536e976b01c20ea676e0b"), "year" : 1992 }
+37 one> db.presidents.update({_id: ObjectId("5c4536e976b01c20ea676e0b")}, {$set: {year: 1992}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+38 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{ "_id" : ObjectId("5c4536e976b01c20ea676e0b"), "year" : 1992 }
+39 one> db.presidents.update({_id: ObjectId("5c4536e976b01c20ea676e0b")}, {$set: {name: 'Bill Clinton'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+40 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "year" : 1992,
+        "name" : "Bill Clinton"
+}
+41 one> db.presidents.update({_id: ObjectId("5c4536e976b01c20ea676e0b")}, {$set: {firstLady: 'Hillary'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+42 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "year" : 1992,
+        "name" : "Bill Clinton",
+        "firstLady" : "Hillary"
+}
+43 one> db.presidents.find().pretty()
+{
+        "_id" : ObjectId("5c3173a7b9c00335688f2718"),
+        "name" : "Barack Obama",
+        "year" : "2013"
+}
+{
+        "_id" : ObjectId("5c3173edb9c00335688f2719"),
+        "name" : "Donald Trump",
+        "year" : "2017"
+}
+{
+        "_id" : ObjectId("5c4534a876b01c20ea676e08"),
+        "name" : "George W Bush",
+        "year" : 2000
+}
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09"), "foo" : 27 }
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0a"),
+        "name" : "George H W Bush",
+        "year" : 1989
+}
+{
+        "_id" : ObjectId("5c4536e976b01c20ea676e0b"),
+        "year" : 1992,
+        "name" : "Bill Clinton",
+        "firstLady" : "Hillary"
+}
+44 one> db.presidents.find({}, {name: 1})
+{ "_id" : ObjectId("5c3173a7b9c00335688f2718"), "name" : "Barack Obama" }
+{ "_id" : ObjectId("5c3173edb9c00335688f2719"), "name" : "Donald Trump" }
+{ "_id" : ObjectId("5c4534a876b01c20ea676e08"), "name" : "George W Bush" }
+{ "_id" : ObjectId("5c4534e076b01c20ea676e09") }
+{ "_id" : ObjectId("5c4536e976b01c20ea676e0a"), "name" : "George H W Bush" }
+{ "_id" : ObjectId("5c4536e976b01c20ea676e0b"), "name" : "Bill Clinton" }
+45 one> db.presidents.find({}, {name: 1, _id: 0})
+{ "name" : "Barack Obama" }
+{ "name" : "Donald Trump" }
+{ "name" : "George W Bush" }
+{  }
+{ "name" : "George H W Bush" }
+{ "name" : "Bill Clinton" }
+46 one> db.presidents.find({}, {name: 0, _id: 0})
+{ "year" : "2013" }
+{ "year" : "2017" }
+{ "year" : 2000 }
+{ "foo" : 27 }
+{ "year" : 1989 }
+{ "year" : 1992, "firstLady" : "Hillary" }
+47 one> db.presidents.find({name: 'George W Bush'}, {year: 1, _id: 0})
+{ "year" : 2000 }
+48 one>

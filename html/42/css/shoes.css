@@ -1,0 +1,27 @@
+img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+/*body {
+    font-size: 16px;
+}*/
+
+div {
+    /*font-size: 2em*/
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 2rem;
+    /*font-size: 32px;*/
+}
+
+#womensShoes {
+    border: 3px dashed green;
+}
+
+.shoeTitle {
+    font-style: italic;
+}

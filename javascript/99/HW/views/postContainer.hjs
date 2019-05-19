@@ -1,0 +1,13 @@
+<div id="posts">
+    {{> posts}}
+</div>
+<button id="loadMore">load more</button>
+<div id="addComment">
+    <textarea id="content" name="content"></textarea>
+    <button id="add">add comment</button>
+    <button id="cancel">cancel</button>
+</div>
+<script>
+    var Blog = Blog || {};
+    Blog.numPosts = {{ numPosts }};
+</script>

@@ -1,0 +1,14 @@
+<ul>
+  <li *ngFor="let blog of blogs | async">
+    <a [routerLink]="['/blog', blog.id]">
+      {{blog.name}}<br />
+      {{blog.website}}<br />
+      {{blog.company}}
+    </a>
+    <a [routerLink]="['blog', blog.id]">(same page)</a>
+  </li>
+</ul>
+
+<hr>
+
+<router-outlet></router-outlet>

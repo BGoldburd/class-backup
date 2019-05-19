@@ -1,0 +1,25 @@
+.comments {
+    border: 1px solid black;
+    font-size: .8em;
+}
+
+.comments h3, .comments h4 {
+    margin: 0;
+}
+
+.comments h3 {
+    color: blue;
+}
+
+.comments h4 {
+    color: gray;
+}
+
+#addComment {
+    display: none;
+}
+
+#loadMore {
+    float: right;
+    margin-top: 1em;
+}

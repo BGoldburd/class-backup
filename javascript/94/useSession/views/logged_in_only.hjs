@@ -1,0 +1,2 @@
+<h2>Welcome {{user}}</h2>
+<p>You cant see this page unless logged in</p>

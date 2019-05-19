@@ -1,0 +1,14 @@
+{
+  "name": "httpcollect_bl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "httpCollect_bl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bl": "^2.1.2"
+  }
+}

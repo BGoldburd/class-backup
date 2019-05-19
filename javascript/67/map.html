@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sidebar {
+            width: 25%;
+            float: left;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .controls {
+            padding: 1em 0;
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+
+        #map {
+            width: 75%;
+            height: 100%;
+        }
+
+        #placesList {
+            list-style-type: none;
+            padding: 0;
+            overflow-y: auto;
+        }
+
+        #placesList li {
+            margin: .5em;
+            margin-bottom: 1em;
+            cursor: pointer;
+            border: 1px solid gray;
+        }
+
+        #placesList li:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        #placesList img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        .summary {
+            display: none;
+            margin-top: .25em;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="controls">
+            <input id="tag">
+            <input type="number" id="rows" min="1" max="100" step="10" value="10"/>
+            <button id="go">go</button>
+            <button id="clear">clear</button>
+        </div>
+        <ul id="placesList"></ul>
+    </div>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsOI_hGGwp0aYBhVcElmp0ruOpNXybrmw&libraries=drawing"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>

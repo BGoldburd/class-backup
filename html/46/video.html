@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        @media screen and (min-width: 800px) {
+            video {
+                box-sizing: border-box;
+                padding: 6px;
+                width: 33.33%;
+            }
+        }
+
+        @media screen and (max-width: 799px) {
+            video {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        @media print {
+            nav {
+                page-break-after: always;
+            }
+
+            video {
+                display: none;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <a href="https://www.google.com">google</a>
+    </nav>
+    <!--video src="../45/media/ivri.mp4" autoplay controls loop /-->
+    <video controls preload="none" poster="images/ivri poster.png">
+        <source src="../45/media/ivri.ogg" />
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls preload="metadata">
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video><!--
+    --><video controls>
+        <source src="../45/media/ivri.mp4" />
+    </video>
+    <p>End of page</p>
+</body>
+
+</html>

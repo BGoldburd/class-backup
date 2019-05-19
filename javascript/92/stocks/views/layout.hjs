@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+
+    <title>PCS Stocks</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PCS Stocks</h1>
+        <hr />
+        <div class="d-flex flex-row-reverse">
+            <form class="form-inline">
+                <label class="sr-only" for="symbol">Symbol</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="symbol" name="symbol" placeholder="e.g. MSFT"
+                    value={{stockInfo.symbol}}>
+
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+        </div>
+        {{> content}}
+    </div>
+</body>
+
+</html>

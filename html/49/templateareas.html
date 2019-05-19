@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            padding: 6px;
+        }
+        
+        body {
+            display: grid;
+            grid-gap: 20px;
+
+            grid-template-columns: 1fr;
+            grid-template-areas: "header"
+                                 "main"
+                                 "sidebar"
+                                 "footer";
+
+            transform: rotate(45deg);
+        }
+
+        @media screen and (min-width: 640px) {
+            body {
+                grid-template-columns: 1fr 2fr 4fr 1fr;
+                grid-template-areas: ". header  header ."
+                                     ". sidebar main   ."
+                                     ". sidebar main   ."
+                                     ". footer  footer .";
+            }
+        }
+
+        header {
+            background-color: lightblue;
+            grid-area: header;
+        }
+
+        article {
+            background-color: lightgreen;
+            grid-area: main;
+        }
+
+        aside {
+            background-color: lightpink;
+            grid-area: sidebar;
+        }
+
+        footer {
+            background-color: lightgray;
+            grid-area: footer;
+        }
+    </style>   
+    <title>Document</title>
+</head>
+<body>
+    <header>Header</header>
+    <article>
+        <h1>Article</h1>
+        <p>Some content here</p>
+    </article>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
+</body>
+</html>

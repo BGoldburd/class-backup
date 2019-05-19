@@ -1,0 +1,9 @@
+<form method="post">
+    <label>Title
+        <input name="title" />
+    </label>
+    <label>Content
+        <textarea name="content"></textarea>
+    </label>
+    <button>submit</button>
+</form>

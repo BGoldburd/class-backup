@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .blog {
+            display: inline-block;
+            width: 33.33%;
+            margin-bottom: 2em;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .blog .title,
+        .post .title {
+            font-style: italic;
+            font-size: 1.5em;
+        }
+
+        .post {
+            margin-bottom: 1em;
+        }
+
+        #next {
+            float: right;
+        }
+
+        .post button {
+            font-size: 0.6em;
+        }
+
+        .comments {
+            font-size: 0.8em;
+            border: 1px solid black;
+            display: none;
+        }
+
+        .comment .title {
+            font-size: 0.8em;
+        }
+
+        .comment:not(:first-child) {
+            margin-top: 0.8em;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>PCS Blogs</h1>
+        <h2 id="title"></h2>
+        <nav>
+            <ul>
+                <li><a id="home" href="#">home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <div id="content"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="test.js"></script>
+</body>
+
+</html>

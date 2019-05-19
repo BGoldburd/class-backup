@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        pre {
+            border: 1px solid black;
+            display: none;
+        }
+
+        #error {
+            display: none;
+            background-color: red;
+            color: black;
+            padding: 10px;
+            margin-top: 4px;
+        }
+
+        #spinner {
+            display: none;
+            width: 1em;
+            vertical-align: middle;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    File to load:
+    <input id="filename">
+    <button id="load">load</button>
+    <img id="spinner" src="images/spinner.gif" alt="loading..." />
+    <div id="error"></div>
+    <pre id="loadedText"></pre>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+    <script src="loadFile.js"></script>
+</body>
+
+</html>

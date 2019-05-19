@@ -1,0 +1,10 @@
+<p>Welcome to {{ title }}</p>
+<form method="post" action="/login">
+  <label>Name:
+    <input name="user" />
+  </label>
+  <label>Password:
+    <input type="password" name="password" />
+  </label>
+  <button>Login</button>
+</form>

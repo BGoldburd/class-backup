@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        ul {
+            background-color: #292929;
+            color: white;
+            list-style-type: none;
+            padding-left: 0;
+            width: 100px;
+        }
+
+        li {
+            padding: 10px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid #3c3c3c;
+        }
+
+        li:first-child {
+            border-top: none;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        td:first-child {
+            font-weight: bold;
+        }
+
+        caption {
+            border: 1px solid black;
+            color: red;
+            font-size: 3em;
+            caption-side: bottom;
+            border-top: none;
+        }
+
+        tfoot td {
+            color: red;
+            font-weight: bold;
+        }
+
+        /*.odd {
+            background-color: lightgray;
+        }*/
+
+        /*evens
+        tbody tr:nth-child(2n) {
+            font-size: 36px;
+        }
+        
+        / * odds* /
+        tbody tr:nth-child(2n + 1) {
+            font-style: italic;
+        }
+        */
+
+        tbody tr:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        tbody tr:hover {
+            background-color: lightcyan/*!important*/
+            ;
+        }
+
+        td:hover {
+            background-color: pink;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>PCS</h1>
+    <hr>
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+    </ul>
+
+    <!--h2>Temperature First Week Of Each Month</h2-->
+    <table>
+        <caption>Temperature First Week Of Each Month</caption>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td>
+                <td>81</td>
+                <td>67</td>
+                <td>73</td>
+                <td>78</td>
+                <td>82</td>
+                <td>81</td>
+                <td>67</td>
+            </tr>
+            <tr class="odd">
+                <td>February</td>
+                <td>81</td>
+                <td>67</td>
+                <td>73</td>
+                <td>78</td>
+                <td>82</td>
+                <td>81</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>81</td>
+                <td>67</td>
+                <td>73</td>
+                <td>78</td>
+                <td>82</td>
+                <td>81</td>
+                <td>67</td>
+            </tr>
+            <tr class="odd">
+                <td>April</td>
+                <td>81</td>
+                <td>67</td>
+                <td>73</td>
+                <td>78</td>
+                <td>82</td>
+                <td>81</td>
+                <td>67</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Average</td>
+                <td>45</td>
+                <td>76</td>
+                <td>54</td>
+                <td>66</td>
+                <td>73</td>
+                <td>81</td>
+                <td>99</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
